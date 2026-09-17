@@ -1,11 +1,6 @@
-<<<<<<< HEAD
+
 # CampusFix 五组版
-本仓库用于《基础开发与操作》课程项目。
 
-=======
-# CampusFix（基准版）
-
->>>>>>> side-b
 
 《基础开发与操作》课程贯穿项目。面向零工程经验学生的 Flask + SQLite 最小 Web 应用，用于练习 Git、协作、测试、CI、Docker 与部署。
 
@@ -71,3 +66,5 @@ campusfix-starter/
     ├── conftest.py      # pytest fixture（临时数据库）
     └── test_app.py      # 示例测试（含 1 个故意失败）
 ```
+## 小组 Sprint 1 计划
+- [ ] 新增工单状态筛选功能（Issue #1）
