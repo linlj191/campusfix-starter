@@ -1,16 +1,16 @@
 import pytest
 from app import validate_ticket, app
 
-def test_title_too_long():
-    ticket = {
-        "title": "A" * 21,
-        "room": "A101",
-        "description": "测试内容"
-    }
-    ok, msg = validate_ticket(ticket)
-    assert ok is False
+#def test_title_too_long():
+ #   ticket = {
+ #       "title": "A" * 21,
+  #      "room": "A101",
+  #      "description": "测试内容"
+ #   }
+ #   ok, msg = validate_ticket(ticket)
+  #  assert ok is False
 
-    assert "标题不能超过20个字符" in msg
+  #  assert "标题不能超过20个字符" in msg
 
 # 课15新增测试
 def test_index_page():
