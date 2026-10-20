@@ -1,5 +1,10 @@
 name: CI自动测试
-on: [push, pull_request]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
 jobs:
   test-job:
     runs-on: ubuntu-latest
@@ -14,6 +19,11 @@ jobs:
 
       - name: 安装依赖
         run: pip install -r requirements.txt
+        
+      - name: 使用Secret，打印token长度（不输出明文）
+        run: echo "token长度=${#TEST_TOKEN}"
+        env:
+          TEST_TOKEN: ${{ secrets.TEST_TOKEN }}
 
 
       - name: 执行pytest测试
