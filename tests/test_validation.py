@@ -8,7 +8,7 @@ def test_title_too_long():
         "description": "测试内容"
     }
     ok, msg = validate_ticket(ticket)
-    assert ok is True
+    assert ok is False
 
     assert "标题不能超过20个字符" in msg
 
@@ -17,7 +17,7 @@ def test_index_page():
     # 获取测试客户端
     client = app.test_client()
     resp = client.get("/")
-    assert resp.status_code == 200
+    assert resp.status_code == 999
 
 def test_new_ticket_page():
     client = app.test_client()
