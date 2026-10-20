@@ -1,21 +1,19 @@
 import pytest
 from app import validate_ticket, app
 
-#def test_title_too_long():
- #   ticket = {
- #       "title": "A" * 21,
-  #      "room": "A101",
-  #      "description": "测试内容"
- #   }
- #   ok, msg = validate_ticket(ticket)
-  #  assert ok is False
-
-  #  assert "标题不能超过20个字符" in msg
+def test_title_too_long():
+    ticket = {
+        "title": "A" * 21,
+        "room": "A101",
+        "description": "测试内容"
+    }
+    ok, msg = validate_ticket(ticket)
+    assert ok is False
+    assert "标题不能超过20个字符" in msg
 
 # 课15新增测试
 def test_index_page():
     # 获取测试客户端
-
     client = app.test_client()
     resp = client.get("/")
     assert resp.status_code == 200
@@ -45,6 +43,7 @@ def test_post_ticket_valid():
     })
     # 校验通过，重定向 302
     assert resp.status_code == 302
+
 # --------课16新增：参数化边界测试--------
 @pytest.mark.parametrize("title,expected", [
     ("正常标题", 302),
@@ -56,7 +55,7 @@ def test_post_ticket_valid():
 def test_title_boundary(client, title, expected):
     resp = client.post("/tickets/new", data={
         "title": title,
-        "room": "A区101",
+        "room": "A101",
         "description": "测试",
     })
     assert resp.status_code == expected
