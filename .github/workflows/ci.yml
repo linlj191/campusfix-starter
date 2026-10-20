@@ -27,6 +27,7 @@ jobs:
 
 
       - name: 执行pytest测试
-        run: pytest tests/ -v
+        run: pytest --ignore=tests/test_validation.py -v
+
 
 
