@@ -43,6 +43,7 @@ def test_post_ticket_valid():
     })
     # 校验通过，重定向 302
     assert resp.status_code == 302
+
 # --------课16新增：参数化边界测试--------
 @pytest.mark.parametrize("title,expected", [
     ("正常标题", 302),
@@ -54,7 +55,7 @@ def test_post_ticket_valid():
 def test_title_boundary(client, title, expected):
     resp = client.post("/tickets/new", data={
         "title": title,
-        "room": "A区101",
+        "room": "A101",
         "description": "测试",
     })
     assert resp.status_code == expected
