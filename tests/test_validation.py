@@ -15,9 +15,11 @@ def test_title_too_long():
 # 课15新增测试
 def test_index_page():
     # 获取测试客户端
+    assert 1 == 0
+
     client = app.test_client()
     resp = client.get("/")
-    assert resp.status_code == 999
+    assert resp.status_code == 200
 
 def test_new_ticket_page():
     client = app.test_client()
